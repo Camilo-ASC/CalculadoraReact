@@ -1,42 +1,145 @@
+/* ========================================
+   APP CONTAINER STYLES
+   ======================================== */
+
 #root {
-  max-width: 1280px;
+  width: 100%;
+  max-width: 1400px;
   margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  padding: clamp(1rem, 3vw, 2rem);
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+/* ========================================
+   CALCULATOR CARDS & CONTAINERS
+   ======================================== */
+
+.calculator-container {
+  background: rgba(20, 24, 39, 0.6);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+  box-shadow:
+    0 8px 32px rgba(0, 212, 255, 0.15),
+    0 4px 16px rgba(181, 55, 255, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+  animation: fadeInUp 0.6s ease-out;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+.calculator-container:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 12px 40px rgba(0, 212, 255, 0.2),
+    0 6px 20px rgba(181, 55, 255, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  border-color: rgba(0, 212, 255, 0.3);
+}
+
+/* ========================================
+   GRADIENT HEADERS
+   ======================================== */
+
+.gradient-text {
+  background: linear-gradient(135deg, #00d4ff 0%, #b537ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.header-glow {
+  position: relative;
+  padding-bottom: 1rem;
+  margin-bottom: 2rem;
+}
+
+.header-glow::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg,
+      transparent 0%,
+      var(--calc-accent-primary) 20%,
+      var(--calc-accent-secondary) 80%,
+      transparent 100%);
+  border-radius: 2px;
+  box-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+}
+
+/* ========================================
+   BUTTON ENHANCEMENTS
+   ======================================== */
+
+.calc-button {
+  background: linear-gradient(135deg, #00d4ff 0%, #b537ff 100%);
+  border: none;
+  border-radius: 12px;
+  padding: 0.75em 1.5em;
+  font-size: 1em;
+  font-weight: 600;
+  color: white;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  box-shadow:
+    0 4px 15px rgba(0, 212, 255, 0.3),
+    0 2px 8px rgba(181, 55, 255, 0.2);
+}
+
+.calc-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.5s ease;
+}
+
+.calc-button:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow:
+    0 6px 20px rgba(0, 212, 255, 0.4),
+    0 3px 12px rgba(181, 55, 255, 0.3);
+}
+
+.calc-button:hover::before {
+  left: 100%;
+}
+
+.calc-button:active {
+  transform: translateY(0) scale(0.98);
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+
+@media (max-width: 768px) {
+  #root {
+    padding: 1rem;
   }
-  to {
-    transform: rotate(360deg);
+
+  .calculator-container {
+    padding: 1.5rem;
+    border-radius: 16px;
+  }
+
+  .header-glow {
+    margin-bottom: 1.5rem;
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+@media (max-width: 480px) {
+  .calculator-container {
+    padding: 1rem;
   }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
 }
