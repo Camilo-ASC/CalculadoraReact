@@ -13,26 +13,6 @@ export const paperStyles = {
 export const titleStyles = {
     background: 'linear-gradient(135deg, #00d4ff 0%, #b537ff 100%)',
     WebkitBackgroundClip: 'text',
-    WebkitTextFillColor: 'transparent',
-    fontWeight: 600,
-    mb: 3
-};
-
-export const textFieldStyles = {
-    '& .MuiOutlinedInput-root': {
-        backgroundColor: 'rgba(10, 14, 26, 0.5)',
-        '& fieldset': { borderColor: 'var(--calc-border)' },
-        '&:hover fieldset': { borderColor: 'var(--calc-border-hover)' },
-        '&.Mui-focused fieldset': { borderColor: 'var(--calc-accent-primary)' },
-    },
-    '& .MuiInputLabel-root': { color: 'var(--calc-text-secondary)' },
-    '& .MuiInputLabel-root.Mui-focused': { color: 'var(--calc-accent-primary)' },
-};
-
-export const buttonStyles = {
-    background: 'linear-gradient(135deg, #00d4ff 0%, #b537ff 100%)',
-    color: 'white',
-    fontWeight: 600,
     py: 1.5,
     borderRadius: '12px',
     textTransform: 'none',

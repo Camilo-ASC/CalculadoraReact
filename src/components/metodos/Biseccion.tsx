@@ -83,6 +83,13 @@ export default function Biseccion() {
                 borderColor: 'var(--calc-accent-primary)',
               },
             },
+            '& .MuiInputBase-input': {
+              color: 'rgba(255, 255, 255, 0.95)',
+            },
+            '& .MuiInputBase-input::placeholder': {
+              color: 'rgba(255, 255, 255, 0.5)',
+              opacity: 1,
+            },
             '& .MuiInputLabel-root': {
               color: 'var(--calc-text-secondary)',
             },
