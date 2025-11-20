@@ -4,8 +4,11 @@
  */
 export function evaluarFuncion(funcion: string, x: number): number {
   try {
-    // Creamos una función dinámica: f(x) => return funcion;
-    const f = new Function("x", `return ${funcion};`);
+    // Reemplazar ^ por ** para potencias
+    const funcionSegura = funcion.replace(/\^/g, "**");
+
+    // Crear función dinámica
+    const f = new Function("x", `return ${funcionSegura};`);
     return f(x);
   } catch {
     throw new Error("No se pudo evaluar la función correctamente.");
